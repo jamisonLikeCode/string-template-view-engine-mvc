@@ -30,14 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="antlr.runtime, Version=2.7.7.3, Culture=neutral, PublicKeyToken=d7701e059243744f">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Clients\WebsiteLogic\projects\ChristianVoices\Source\trunk\Assemblies\antlr.runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="StringTemplate, Version=3.0.1.6846, Culture=neutral, PublicKeyToken=beee492b52c41e85, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Clients\WebsiteLogic\projects\ChristianVoices\Source\trunk\Assemblies\StringTemplate.dll</HintPath>
-    </Reference>
+    <Reference Include="antlr.runtime, Version=2.7.7.3, Culture=neutral, PublicKeyToken=d7701e059243744f" />
+    <Reference Include="StringTemplate, Version=3.0.1.6846, Culture=neutral, PublicKeyToken=beee492b52c41e85, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -77,6 +71,8 @@
     <Content Include="Global.asax" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assemblies\antlr.runtime.dll" />
+    <Content Include="Assemblies\StringTemplate.dll" />
     <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
