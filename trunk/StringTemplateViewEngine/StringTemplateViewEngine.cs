@@ -57,11 +57,17 @@ namespace MvcDemo
         /// <returns></returns>
         public ViewEngineResult FindView(ControllerContext controllerContext, string viewName, string masterName, bool useCache)
         {
-            //get the controller name
-            var controllerName = controllerContext.Controller.GetType().Name.Replace("Controller", "");
-
             //load template from loader
-            var template = Group.GetInstanceOf(string.Format("{0}/{1}", controllerName, viewName));
+            StringTemplate template;
+            if (viewName.StartsWith("~"))
+            {
+                template = Group.GetInstanceOf(viewName.Replace("~", "")); //viewName.Substring(2, viewName.Length - 2)
+            }
+            else
+            {
+                var controllerName = controllerContext.Controller.GetType().Name.Replace("Controller", "");
+                template = Group.GetInstanceOf(string.Format("{0}/{1}", controllerName, viewName));
+            }
 
             //return view result
             return new ViewEngineResult(new StringTemplateView(template), this);
