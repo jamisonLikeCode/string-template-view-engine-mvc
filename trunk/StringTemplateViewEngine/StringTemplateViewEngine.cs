@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using Antlr.StringTemplate;
 
@@ -59,9 +60,11 @@ namespace MvcDemo
         {
             //load template from loader
             StringTemplate template;
-            if (viewName.StartsWith("~"))
+            var match = Regex.Match(viewName, "^~/?(.*)");
+            if (match.Success)
             {
-                template = Group.GetInstanceOf(viewName.Replace("~", "")); //viewName.Substring(2, viewName.Length - 2)
+                throw new Exception(match.Groups[1].Value);
+                //template = Group.GetInstanceOf(match.Groups[1].Value);
             }
             else
             {
