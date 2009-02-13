@@ -63,8 +63,7 @@ namespace MvcDemo
             var match = Regex.Match(viewName, "^~/?(.*)");
             if (match.Success)
             {
-                throw new Exception(match.Groups[1].Value);
-                //template = Group.GetInstanceOf(match.Groups[1].Value);
+                template = Group.GetInstanceOf(match.Groups[1].Value);
             }
             else
             {
