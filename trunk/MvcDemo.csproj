@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Home\Index.st" />
+    <None Include="Views\Shared\Menu.st" />
     <None Include="Views\Test\Alternate.st" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
