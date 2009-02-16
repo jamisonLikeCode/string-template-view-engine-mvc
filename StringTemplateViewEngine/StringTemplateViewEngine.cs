@@ -35,9 +35,8 @@ namespace MvcDemo
         #endregion
 
         #region IViewEngine Members
-
         /// <summary>
-        /// Returns null. Partial views don't exist in StringTemplate
+        /// Locates a view.
         /// </summary>
         /// <param name="controllerContext"></param>
         /// <param name="partialViewName"></param>
@@ -45,7 +44,7 @@ namespace MvcDemo
         /// <returns></returns>
         public ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
         {
-            return null;
+            return LoadView(controllerContext, partialViewName);
         }
 
         /// <summary>
@@ -57,6 +56,17 @@ namespace MvcDemo
         /// <param name="useCache"></param>
         /// <returns></returns>
         public ViewEngineResult FindView(ControllerContext controllerContext, string viewName, string masterName, bool useCache)
+        {
+            return LoadView(controllerContext, viewName);
+        }
+
+        /// <summary>
+        /// Loads a view instance from the Group object
+        /// </summary>
+        /// <param name="controllerContext">The calling controller</param>
+        /// <param name="viewName">The name of the view</param>
+        /// <returns>a ViewEngineResult</returns>
+        private ViewEngineResult LoadView(ControllerContext controllerContext, string viewName)
         {
             //load template from loader
             StringTemplate template;
@@ -74,7 +84,7 @@ namespace MvcDemo
             //return view result
             return new ViewEngineResult(new StringTemplateView(template), this);
         }
-
+        
         /// <summary>
         /// Not used. String templates are cached by the static group object.
         /// </summary>

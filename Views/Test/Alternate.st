@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Alternate View Path</h1>
+    <p>$shared/menu()$</p>
     <p>Here's an alternate template path.</p>
 </body>
 </html>

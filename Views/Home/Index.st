@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>StringTemplate Rocks.</h1>
+    <p>$shared/menu()$</p>
     <p>$Message$</p>
 </body>
 </html>
