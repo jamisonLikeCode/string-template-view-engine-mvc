@@ -1,4 +1,9 @@
 ﻿body
 {
-	font-family: Sans-Serif;
+	font: 13px Sans-Serif;
 }
+#container { margin: 0 auto; width: 800px; }
+#menu { padding: 5px; background: #e2e2e2; }
+#menu a { color: Blue; }
+#left { float:left; width: 190px; padding: 5px; background: #efefef; height: 400px; }
+#right { float:left; width: 590px; padding: 5px; height: 400px; }
