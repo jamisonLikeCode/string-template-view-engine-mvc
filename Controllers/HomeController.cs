@@ -12,7 +12,9 @@ namespace MvcDemo.Controllers
         public ActionResult Index()
         {
             ViewData["Message"] = "Welcome to the StringTemplate ViewEngine Demo!";
-            return View();
+            return View(); 
+            // will look for a string template using the standard 
+            // MVC convention of /views/controller/action
         }
 
         /// <summary>
@@ -31,7 +33,7 @@ namespace MvcDemo.Controllers
         /// <returns></returns>
         public ActionResult Dynamic()
         {
-            return View(new StringTemplateView("Template generated on the fly!"));
+            return View(new StringTemplateView("This template was generated on the fly, and does not exist on disk."));
         }
     }
 }
