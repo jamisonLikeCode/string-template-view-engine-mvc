@@ -24,7 +24,7 @@ namespace MvcDemo
         {
             RegisterRoutes(RouteTable.Routes);
             ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new StringTemplateViewEngine(Server.MapPath("/views")));
+            ViewEngines.Engines.Add(new StringTemplateViewEngine(Server.MapPath("~/views")));
         }
     }
 }
