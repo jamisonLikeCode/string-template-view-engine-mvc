@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
-using Antlr.StringTemplate;
+using Antlr3.ST;
 
 namespace MvcDemo
 {
@@ -11,11 +11,6 @@ namespace MvcDemo
     public class StringTemplateViewEngine : IViewEngine
     {
         #region Properties
-        /// <summary>
-        /// The loader object for the templates
-        /// </summary>
-        public static FileSystemTemplateLoader Loader { get; private set; }
-
         /// <summary>
         /// The default group that will hold the cached templates
         /// </summary>
@@ -29,8 +24,7 @@ namespace MvcDemo
         /// <param name="viewPath">The physical path to the root views directory</param>
         public StringTemplateViewEngine(string viewPath)
         {
-            Loader = new FileSystemTemplateLoader(viewPath);
-            Group = new StringTemplateGroup("views", Loader);
+            Group = new StringTemplateGroup("views", viewPath);
         }
         #endregion
 
@@ -84,7 +78,7 @@ namespace MvcDemo
             //return view result
             return new ViewEngineResult(new StringTemplateView(template), this);
         }
-        
+
         /// <summary>
         /// Not used. String templates are cached by the static group object.
         /// </summary>
