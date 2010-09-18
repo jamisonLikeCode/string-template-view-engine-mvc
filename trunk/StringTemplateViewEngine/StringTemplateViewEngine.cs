@@ -25,6 +25,13 @@ namespace MvcDemo
         public StringTemplateViewEngine(string viewPath)
         {
             Group = new StringTemplateGroup("views", viewPath);
+
+            //template cache settings
+            #if DEBUG 
+                Group.RefreshInterval = TimeSpan.Zero; //no cache for debugging
+            #else 
+                Group.RefreshInterval = new TimeSpan(1, 0, 0); //one hour cache in production
+            #endif 
         }
         #endregion
 
